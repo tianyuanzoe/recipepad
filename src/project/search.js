@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import * as client from "./client";
 import {Link, useParams, useNavigate} from "react-router-dom";
-
+import {FaSearchengin} from "react-icons/fa6";
+import "./index.css";
 function Search() {
     const {search} = useParams();
-    const [searchTerm, setSearchTerm] = useState(search || "beatles");
+    const [searchTerm, setSearchTerm] = useState(search || "");
     const [results, setResults] = useState(null);
     const navigate = useNavigate();
 
@@ -20,25 +21,28 @@ function Search() {
         }
     }, [search]);
 
+
     return (
         <div>
             <h1>Search</h1>
-            <pre>{JSON.stringify()}</pre>
-            <button onClick={
-                    () => navigate(`/project/search/${searchTerm}`)
-                }
-                className="btn btn-primary float-end">
-                Search
-            </button>
-            <input type="text" className="form-control w-75" placeholder="Search..."
-                value={searchTerm}
-                onChange={
-                    (event) => {
-                        setSearchTerm(event.target.value);
+            <span>
+                <input type="text" className="form-control w-75 search-bar" placeholder="Search the recipe..."
+                    value={searchTerm}
+                    onChange={
+                        (event) => {
+                            setSearchTerm(event.target.value);
+                        }
+                    }/>
+                <button onClick={
+                        () => navigate(`/project/search/${searchTerm}`)
                     }
-                }/>
+                    className="btn btn-primary ms-3">
+                    Search
+                </button>
+                <FaSearchengin className="ms-3"/>
+            </span>
             <h2>Results</h2>
-            <div className="container-fluid me-5">
+            <div className="container-fluid me-5 search-menu">
                 <div className="row ">
                     {
                     results && results.map((recipe, index) => (
@@ -56,7 +60,7 @@ function Search() {
                                         recipe.idMeal
                                     }`
                                 }>
-                                    <h3>{
+                                    <h3 class="text-center">{
                                         recipe.strMeal
                                     }</h3>
 
