@@ -1,0 +1,17 @@
+import axios from "axios";
+
+const URL =  "http://localhost:4000/api/comments";
+
+// 获取特定 recipeId 下的所有评论
+export const getCommentsForRecipe = async (recipeId) => {
+    const response = await axios.get(`${URL}/${recipeId}`);
+    return response.data;
+  };
+  
+  // 创建评论
+  export const createComment = async (commentData) => {
+    const response = await axios.post(URL, commentData);
+    return response.data;
+};
+
+
