@@ -1,0 +1,8 @@
+[
+    {"commentId":"C1","userId":"u1","recipeId":"52772", "commentContent":"test1","time":"2023-11-1" },
+    {"commentId":"C2","userId":"u2","recipeId":"52772", "commentContent":"test2","time":"2023-11-2" },
+    {"commentId":"C3","userId":"u3","recipeId":"52772", "commentContent":"test3","time":"2023-11-3" },
+    {"commentId":"C4","userId":"u4","recipeId":"52772", "commentContent":"test4","time":"2023-11-4" },
+    {"commentId":"C5","userId":"u5","recipeId":"52772", "commentContent":"test5","time":"2023-11-5" },
+    {"commentId":"C6","userId":"u6","recipeId":"52772", "commentContent":"test6","time":"2023-11-6" }
+  ]
