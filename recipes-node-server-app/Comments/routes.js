@@ -73,11 +73,11 @@ function CommentRoutes(app) {
             const user = await dao.findSaveByUserId(userId);
             console.log(user);
             if (user) {
-                // 更新用户的 saveRecipe 属性为 updatedRecipeArray
+                
                 console.log("backend ")
                 user.saveRecipe = updatedRecipeArray;
     
-                // 将更新后的用户信息保存回数据库
+               
                 console.log("backend " + user)
                 await user.save();
     
@@ -104,7 +104,7 @@ function CommentRoutes(app) {
     // app.post("/api/comments/update/", updateSavedRecipe);
     app.post("/api/comments/update/:userId", async (req, res) => {
         const { userId } = req.params;
-        const updatedRecipeArray = req.body; // 更新后的菜谱数组
+        const updatedRecipeArray = req.body;
         
         try {
             // console.log("backend")
@@ -120,39 +120,7 @@ function CommentRoutes(app) {
 
 
 
-    
-    // 路由处理程序：获取特定 recipeId 下的所有评论
-    // app.get('/api/comments/:recipeId', (req, res) => {
-    //     const { recipeId } = req.params;
-    //     const commentsForRecipe = comments.filter(comment => comment.recipeId == recipeId);
-    //     res.json({ comments: commentsForRecipe });
-    // });
-  
- 
-    // 路由处理程序：创建评论
-//     app.post('/api/comments', (req, res) => {
-//         console.log("here")
-//         const { commentId,userId, recipeId, commentContent, time } = req.body;
-
-//         // 在实际应用中，可以将接收到的评论数据存储到数据库或其他持久性存储中
-//         // 这里是一个示例，将评论数据保存在内存中的数组中
-
-//         const newComment = {
-//             commentId:commentId, 
-//             userId: userId,
-//             recipeId: recipeId,
-//             commentContent: commentContent,
-//             time: time,
-//         };
-//         console.log(newComment)
-//         console.log("here2")
-
-//         comments.push(newComment); // 将新评论添加到评论列表中
-//         console.log(res)
-
-//         res.status(201).json(newComment); // 返回创建的评论数据
-// });
-
+   
   
 }
 export default CommentRoutes;
